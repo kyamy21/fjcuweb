@@ -1,0 +1,213 @@
+/* 全域設定 */
+* {
+  box-sizing: border-box;
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+/* 版面：左側欄 + 右側主內容 */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 側邊欄 */
+aside {
+  width: 220px;
+  background: linear-gradient(to bottom, #0b2f6b, #071d40);
+  padding: 20px 15px;
+  color: white;
+}
+
+/* 左上角 logo（可點回首頁） */
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 選單 */
+.menu {
+  margin-top: 20px;
+}
+
+.menu a {
+  display: block;
+  color: #e3e3e3;
+  padding: 8px 0;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu a:hover {
+  color: #66b3ff;
+}
+
+/* 右邊主內容 */
+.main {
+  flex: 1;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Banner 區塊 */
+.banner img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* 內容外框 */
+.content {
+  padding: 30px 40px 40px 40px;
+}
+
+/* 內容標題 */
+.content h2 {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  color: #223355;
+}
+
+/* 內文段落 */
+.content p {
+  margin: 0 0 16px 0;
+  line-height: 1.8;
+  font-size: 15px;
+  color: #333333;
+}
+
+/* 共用卡片區（商品 / 環境照 / 狗狗照） */
+.product-area {
+  display: flex;
+  gap: 20px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  width: 30%;
+  min-width: 230px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h4 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #223355;
+}
+
+.price {
+  color: #1b77c6;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* ====================== */
+/* 店狗專用樣式（塔西 + 阿鬥 + 多多 + 皮蛋） */
+/* ====================== */
+
+.dog-cards {
+  display: flex;
+  gap: 24px;
+  margin-top: 26px;
+  justify-content: center;
+}
+
+/* 外層卡片當容器用，不要有白底 */
+.dog-cards .card {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  width: 240px;
+}
+
+/* 狗狗照片：圓角、有陰影、hover 放大 */
+.dog-cards .card img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 第一張＆第三張：可以微調構圖（視需要調） */
+.dog-cards .card:nth-child(1) img,
+.dog-cards .card:nth-child(3) img {
+  object-position: center 80%;
+}
+
+/* 中間那張：臉稍微居中 */
+.dog-cards .card:nth-child(2) img {
+  object-position: center 40%;
+}
+
+/* 滑鼠移上去放大＋陰影加深 */
+.dog-cards .card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.28);
+}
+
+/* ====================== */
+/* 菜單介紹專用：整張菜單圖片 */
+/* ====================== */
+
+.menu-image-wrap {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.menu-image {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+}
+
+.menu-image-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* 頁尾 Footer */
+footer {
+  background: #0b2f6b;
+  color: white;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+/* 社群 icon */
+.social img {
+  width: 24px;
+  margin-left: 10px;
+}

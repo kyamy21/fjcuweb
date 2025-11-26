@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>主餐｜寵愛廚房 Pet Love Kitchen</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- 本頁額外效果：hover + 人氣貼紙 -->
+  <style>
+    .product-area .card {
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-area .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    .badge-pop {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff6b81;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .sub-note {
+      margin-top: 4px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 側邊欄（跟甜點那頁一樣） -->
+  <aside>
+    <div class="logo">
+      <a href="index.html">寵愛廚房</a>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">🏠 首頁</a>
+      <a href="intro.html">📖 餐廳簡介</a>
+      <a href="menu.html">📄 菜單介紹</a>
+      <a href="drink.html">🥤 特色飲品</a>
+      <a href="dessert.html">🍰 甜點</a>
+      <a href="main.html">🍽️ 主餐</a>
+      <a href="taxi.html">🐶 店狗塔西</a>
+      <a href="rto.html">🐕 阿鬥</a>
+      <a href="duoduo.html">🐩 多多</a>
+      <a href="pidan.html">🐾 皮蛋</a>
+      <a href="reserve.html">📞 訂位專區</a>
+    </div>
+  </aside>
+
+  <!-- 右側內容 -->
+  <div class="main">
+    <div class="content">
+
+      <h2>主餐</h2>
+
+      <p>
+        在寵愛廚房，每一道主餐都是為了陪伴你與毛孩度過一天中最重要的時光。
+        我們嚴選新鮮食材，搭配健康的烹調方式，兼顧美味與營養，讓每一份餐點都能帶給身體剛剛好的能量與溫暖。
+        不論是清爽無負擔的蔬食沙拉、營養滿分的鮮魚早餐盤，或是高蛋白的均衡餐點，
+        我們都希望，這一餐不只是填飽肚子，更是讓你與毛孩安心相伴、好好生活的一種方式。
+      </p>
+
+      <!-- 人類主餐區 -->
+      <div class="product-area">
+
+        <!-- 1. 健康蔬食雞胸沙拉（用 product1.jpg） -->
+        <div class="card">
+          <img src="images/product1.jpg" alt="健康蔬食雞胸沙拉">
+          <h3>健康蔬食雞胸沙拉</h3>
+          <p>
+            嫩煎雞胸肉搭配生菜、番茄、酪梨、小黃瓜與堅果，
+            佐和風醬，清爽又具飽足感。
+          </p>
+          <p class="price">$260</p>
+        </div>
+
+        <!-- 2. 香煎鮭魚早餐盤（人氣） 用 product2.jpg -->
+        <div class="card">
+          <span class="badge-pop">人氣</span>
+          <img src="images/product2.jpg" alt="香煎鮭魚早餐盤">
+          <h3>香煎鮭魚早餐盤</h3>
+          <p>
+            香煎鮭魚外酥內嫩，搭配太陽蛋、香草馬鈴薯與烤蔬菜，
+            一盤就能補足一天的好能量。
+          </p>
+          <p class="price">$350</p>
+        </div>
+
+        <!-- 3. 嫩煎雞胸佐藜麥 -->
+        <div class="card">
+          <img src="images/chicken_quinoa.jpg" alt="嫩煎雞胸佐藜麥">
+          <h3>嫩煎雞胸佐藜麥</h3>
+          <p>
+            低脂高蛋白的嫩煎雞胸，搭配藜麥與時蔬，是健康首選餐點。
+          </p>
+          <p class="price">$280</p>
+        </div>
+
+        <!-- 4. 青醬蛤蜊義大利麵 -->
+        <div class="card">
+          <img src="images/pesto_clam_pasta.jpg" alt="青醬蛤蜊義大利麵">
+          <h3>青醬蛤蜊義大利麵</h3>
+          <p>
+            新鮮羅勒青醬與蛤蜊完美融合，濃郁又清香的經典義大利風味。
+          </p>
+          <p class="price">$260</p>
+        </div>
+
+      </div>
+
+      <!-- 毛孩專屬區 -->
+      <h3>🐶 毛孩專屬</h3>
+      <p class="sub-note">
+        無調味、無鹽、無洋蔥、無巧克力、無油炸，安心食用。
+      </p>
+
+      <div class="product-area">
+
+        <!-- 毛孩 1. 小農雞肉蔬菜碗 -->
+        <div class="card">
+          <img src="images/dog_chicken_bowl.jpg" alt="小農雞肉蔬菜碗">
+          <h3>小農雞肉蔬菜碗</h3>
+          <p>
+            水煮雞胸肉搭配南瓜、紅蘿蔔與花椰菜，
+            低脂高蛋白，營養均衡又好消化。
+          </p>
+          <p class="price">$150</p>
+        </div>
+
+        <!-- 毛孩 2. 鮭魚地瓜營養餐 -->
+        <div class="card">
+          <img src="images/dog_salmon_sweetpotato.jpg" alt="鮭魚地瓜營養餐">
+          <h3>鮭魚地瓜營養餐</h3>
+          <p>
+            新鮮蒸鮭魚搭配地瓜泥與青豆，富含 Omega-3，
+            有助維持毛孩皮膚與毛髮健康。
+          </p>
+          <p class="price">$170</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer>
+      <div>© 2025 寵愛廚房 Pet Love Kitchen</div>
+      <div class="social">
+        <img src="images/facebook.png" alt="Facebook">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/line.png" alt="Line">
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

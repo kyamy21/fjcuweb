@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>甜點｜寵愛廚房 Pet Love Kitchen</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- 本頁額外效果：hover + 人氣標籤 -->
+  <style>
+    .product-area .card {
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-area .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    /* 人氣小貼紙 */
+    .badge-pop {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff6b81;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 側邊欄 -->
+  <aside>
+    <div class="logo">
+      <a href="index.html">寵愛廚房</a>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">🏠 首頁</a>
+      <a href="intro.html">📖 餐廳簡介</a>
+      <a href="menu.html">📄 菜單介紹</a>
+      <a href="drink.html">🥤 特色飲品</a>
+      <a href="dessert.html">🍰 甜點</a>
+      <a href="main.html">🍽️ 主餐</a>
+      <a href="taxi.html">🐶 店狗塔西</a>
+      <a href="rto.html">🐕 阿鬥</a>
+      <a href="duoduo.html">🐩 多多</a>
+      <a href="pidan.html">🐾 皮蛋</a>
+      <a href="reserve.html">📞 訂位專區</a>
+    </div>
+  </aside>
+
+  <!-- 右側內容 -->
+  <div class="main">
+    <div class="content">
+
+      <h2>甜點</h2>
+
+      <p>
+        在寵愛廚房，甜點不只是餐後的點綴，而是療癒日常的重要儀式。
+        我們堅持選用高品質原料與當季食材，細心烘焙出每一份甜點的最佳風味，
+        讓甜而不膩、多層次的口感，為你帶來剛剛好的幸福感。
+        無論是經典不敗的鬆餅、濃郁滑順的蛋糕，還是專為毛孩設計的無糖小點心，
+        每一口都是我們對你與毛孩最細膩的用心與寵愛。
+      </p>
+
+      <div class="product-area">
+
+        <!-- 1. 經典鬆餅（用 product3 的圖） -->
+        <div class="card">
+          <img src="images/product3.jpg" alt="經典鬆餅">
+          <h3>經典鬆餅</h3>
+          <p>外酥內軟的黃金鬆餅，可搭配蜂蜜、鮮奶油與當季水果，經典不敗款。</p>
+          <p class="price">$180</p>
+        </div>
+
+        <!-- 2. 莓果生乳酪蛋糕（人氣） -->
+        <div class="card">
+          <span class="badge-pop">人氣</span>
+          <img src="images/cheesecake.jpg" alt="莓果生乳酪蛋糕">
+          <h3>莓果生乳酪蛋糕</h3>
+          <p>濃郁起司結合酸甜莓果，口感綿密不膩，層次豐富。</p>
+          <p class="price">$190</p>
+        </div>
+
+        <!-- 3. 香草冰淇淋布朗尼 -->
+        <div class="card">
+          <img src="images/brownie.jpg" alt="香草冰淇淋布朗尼">
+          <h3>香草冰淇淋布朗尼</h3>
+          <p>口感濕潤濃厚，巧克力香氣十足，搭配香草冰淇淋更添風味。</p>
+          <p class="price">$160</p>
+        </div>
+
+        <!-- 4. 焦糖布丁 -->
+        <div class="card">
+          <img src="images/pudding.jpg" alt="焦糖布丁">
+          <h3>焦糖布丁</h3>
+          <p>細緻滑順的口感，加上微苦焦糖，甜而不膩的大人氣甜點。</p>
+          <p class="price">$120</p>
+        </div>
+
+        <!-- 5. 犬用優格小蛋糕 -->
+        <div class="card">
+          <img src="images/dog_cake.jpg" alt="犬用優格小蛋糕">
+          <h3>🐶 犬用優格小蛋糕（無糖）</h3>
+          <p>專為毛孩設計，無糖、無添加，讓毛孩也能一起享受用餐的儀式感。</p>
+          <p class="price">$99</p>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <div>© 2025 寵愛廚房 Pet Love Kitchen</div>
+      <div class="social">
+        <img src="images/facebook.png" alt="Facebook">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/line.png" alt="Line">
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
