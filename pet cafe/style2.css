@@ -15,18 +15,18 @@ body {
   min-height: 100vh;
 }
 
-/* 側邊欄 */
+/* 側邊欄：奶茶系配色 */
 aside {
   width: 220px;
-  background: linear-gradient(to bottom, #0b2f6b, #071d40);
+  background: linear-gradient(to bottom, #f8efe8, #f1dfcd);
   padding: 20px 15px;
-  color: white;
+  color: #5b4633;
 }
 
 /* 左上角 logo（可點回首頁） */
 .logo a {
   text-decoration: none;
-  color: white;
+  color: #4a3425;
   font-size: 24px;
   font-weight: bold;
 }
@@ -38,14 +38,14 @@ aside {
 
 .menu a {
   display: block;
-  color: #e3e3e3;
+  color: #5b4633;
   padding: 8px 0;
   text-decoration: none;
   font-size: 15px;
 }
 
 .menu a:hover {
-  color: #66b3ff;
+  color: #c1855d;
 }
 
 /* 右邊主內容 */
@@ -72,7 +72,7 @@ aside {
 .content h2 {
   margin: 0 0 12px 0;
   font-size: 24px;
-  color: #223355;
+  color: #3d3a35;
 }
 
 /* 內文段落 */
@@ -80,7 +80,7 @@ aside {
   margin: 0 0 16px 0;
   line-height: 1.8;
   font-size: 15px;
-  color: #333333;
+  color: #444444;
 }
 
 /* 共用卡片區（商品 / 環境照 / 狗狗照） */
@@ -111,24 +111,25 @@ aside {
 .card h4 {
   margin-top: 10px;
   font-size: 16px;
-  color: #223355;
+  color: #3d3a35;
 }
 
 .price {
-  color: #1b77c6;
+  color: #c1855d;
   font-weight: bold;
   margin-top: 5px;
 }
 
 /* ====================== */
-/* 店狗專用樣式（塔西 + 阿鬥 + 多多 + 皮蛋） */
+/* 店狗專用樣式（塔西 + 阿鬥 + 多多 + 皮蛋共用） */
 /* ====================== */
 
 .dog-cards {
   display: flex;
-  gap: 24px;
-  margin-top: 26px;
   justify-content: center;
+  gap: 26px;
+  margin-top: 26px;
+  flex-wrap: wrap;
 }
 
 /* 外層卡片當容器用，不要有白底 */
@@ -149,7 +150,7 @@ aside {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* 第一張＆第三張：可以微調構圖（視需要調） */
+/* 第一張＆第三張：往下多一點，腳腳露出來 */
 .dog-cards .card:nth-child(1) img,
 .dog-cards .card:nth-child(3) img {
   object-position: center 80%;
@@ -167,36 +168,40 @@ aside {
 }
 
 /* ====================== */
-/* 菜單介紹專用：整張菜單圖片 */
+/* 菜單介紹：menu.jpg 縮小 + hover */
 /* ====================== */
 
 .menu-image-wrap {
-  margin-top: 24px;
+  margin-top: 28px;
   text-align: center;
 }
 
 .menu-image {
-  width: 90%;
-  max-width: 900px;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  max-width: 60%;       /* 圖片最多佔螢幕 60% 寬 */
+  width: 100%;          /* 在小螢幕也可以跟著縮小 */
+  height: auto;         /* 依比例縮放高度 */
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  display: block;
+  margin: 0 auto;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .menu-image:hover {
   transform: scale(1.03);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
 }
 
 .menu-image-caption {
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 14px;
-  color: #555;
+  color: #666666;
+  text-align: center;
 }
 
 /* 頁尾 Footer */
 footer {
-  background: #0b2f6b;
+  background: #c1855d;
   color: white;
   padding: 12px 30px;
   display: flex;
@@ -211,3 +216,63 @@ footer {
   width: 24px;
   margin-left: 10px;
 }
+.main {
+  flex: 1;
+  background: #f9f4ef;  /* 很淺的奶茶米色 */
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  width: 30%;
+  min-width: 230px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+img {
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  filter: brightness(1.05) saturate(1.1);
+}
+footer {
+  background: rgba(191,164,138,0.9);
+  backdrop-filter: blur(4px);
+}
+a:hover {
+  cursor: pointer;
+}
+.content h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #c68b5f;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+.content {
+  letter-spacing: 0.3px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.logo {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+footer {
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
