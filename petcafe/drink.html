@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>特色飲品｜寵愛廚房 Pet Love Kitchen</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- 這一頁額外的樣式：hover 動畫 + 人氣貼紙 -->
+  <style>
+    .product-area .card {
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-area .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    /* 人氣小貼紙只會出現在有 .badge-pop 的那張卡片 */
+    .badge-pop {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff6b81;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 側邊欄 -->
+  <aside>
+    <div class="logo">
+      <a href="index.html">寵愛廚房</a>
+    </div>
+
+    <div class="menu">
+      <a href="intro.html">🏠 餐廳簡介</a>
+      <a href="menu.html">📄 菜單介紹</a>
+      <a href="drink.html">🥤 特色飲品</a>
+      <a href="dessert.html">🍰 甜點</a>
+      <a href="main.html">🍽️ 主餐</a>
+      <a href="taxi.html">🐶 店狗塔西</a>
+      <a href="rto.html">🐕 阿鬥</a>
+      <a href="duoduo.html">🐩 多多</a>
+      <a href="pidan.html">🐾 皮蛋</a>
+      <a href="reserve.html">📞 訂位專區</a>
+    </div>
+  </aside>
+
+  <!-- 右側內容 -->
+  <div class="main">
+
+    <div class="content">
+      <h2>特色飲品</h2>
+
+      <p>
+        我們嚴選天然食材與高品質茶飲與咖啡豆，融合花果香氣與自然風味，用心調配出每一杯飲品，只為在忙碌的日常中，為你與毛孩打造一段放慢步調的療癒時光。無論是清爽解渴的氣泡飲、溫潤回甘的茶飲，或香醇細緻的拿鐵，每一口都是對生活的溫柔款待，陪伴你在這個充滿愛與陪伴的空間裡，好好放鬆、好好享受當下。
+      </p>
+
+      <div class="product-area">
+
+        <!-- 1. 抹茶拿鐵 -->
+        <div class="card">
+          <img src="images/matcha.jpg" alt="抹茶拿鐵">
+          <h3>抹茶拿鐵</h3>
+          <p>嚴選日式抹茶粉，搭配濃醇鮮奶，入口滑順、茶香回甘，溫柔又耐喝。</p>
+          <p class="price">$150</p>
+        </div>
+
+        <!-- 2. 黑糖鮮奶 -->
+        <div class="card">
+          <img src="images/brown_sugar_milk.jpg" alt="黑糖鮮奶">
+          <h3>黑糖鮮奶</h3>
+          <p>以手工慢熬黑糖搭配香醇鮮奶，每一口都有自然蔗香與微甜層次。</p>
+          <p class="price">$140</p>
+        </div>
+
+        <!-- 3. 熱帶水果氣泡飲 -->
+        <div class="card">
+          <img src="images/tropical_soda.jpg" alt="熱帶水果氣泡飲">
+          <h3>熱帶水果氣泡飲</h3>
+          <p>百香果與鳳梨交織出的果香，搭配氣泡水，清爽消暑、超適合炎炎夏日。</p>
+          <p class="price">$160</p>
+        </div>
+
+        <!-- 4. 玫瑰荔枝冰茶（人氣貼紙） -->
+        <div class="card">
+          <span class="badge-pop">人氣</span>
+          <img src="images/rose_lychee.jpg" alt="玫瑰荔枝冰茶">
+          <h3>玫瑰荔枝冰茶</h3>
+          <p>淡雅玫瑰花香搭配甜美荔枝，口感細緻，帶來浪漫的花果餘韻。</p>
+          <p class="price">$155</p>
+        </div>
+
+        <!-- 5. 燕麥拿鐵 -->
+        <div class="card">
+          <img src="images/oat_latte.jpg" alt="燕麥拿鐵">
+          <h3>燕麥拿鐵</h3>
+          <p>使用燕麥奶製作，無乳糖、低負擔，口感滑順、帶淡淡堅果香氣。</p>
+          <p class="price">$165</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+      <div>© 2025 寵愛廚房 Pet Love Kitchen</div>
+      <div class="social">
+        <img src="images/facebook.png" alt="Facebook">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/line.png" alt="Line">
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

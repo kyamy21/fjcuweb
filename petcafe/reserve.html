@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>訂位專區｜寵愛廚房 Pet Love Kitchen</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- 訂位專區專用樣式 -->
+  <style>
+    /* 整頁背景加上腳印動畫（記得 images/paw.png 要存在） */
+    body.booking-page {
+      background-color: #f5f5f5;
+      background-image: url("images/paw.png");
+      background-repeat: repeat;
+      background-size: 80px 80px;
+      animation: pawsMove 35s linear infinite;
+    }
+
+    @keyframes pawsMove {
+      from { background-position: 0 0; }
+      to   { background-position: 160px 160px; }
+    }
+
+    .booking-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .booking-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .booking-title span {
+      font-size: 28px;
+    }
+
+    .booking-intro {
+      margin-top: 10px;
+      margin-bottom: 22px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    .booking-form {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 24px 28px 28px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .booking-form-row {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .booking-field {
+      flex: 1;
+      min-width: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .booking-field label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .booking-field input,
+    .booking-field select,
+    .booking-field textarea {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #d0d0d0;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+      background-color: #fafafa;
+    }
+
+    .booking-field input:focus,
+    .booking-field select:focus,
+    .booking-field textarea:focus {
+      border-color: #1e4f92;
+      box-shadow: 0 0 0 2px rgba(30, 79, 146, 0.15);
+      background-color: #ffffff;
+    }
+
+    .booking-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .booking-submit {
+      margin-top: 12px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .booking-submit button {
+      padding: 10px 26px;
+      border-radius: 999px;
+      border: none;
+      background-color: #1e4f92;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .booking-submit button:hover {
+      background-color: #2460b0;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .booking-submit button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    /* 成功彈窗 */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background-color: #ffffff;
+      border-radius: 22px;
+      padding: 22px 26px 20px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #1e4f92;
+    }
+
+    .modal-message {
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    .modal-dogs {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .modal-dogs img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modal-buttons button {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary {
+      background-color: #1e4f92;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: #2460b0;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d2d2d2;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .booking-form {
+        padding: 18px 16px 20px;
+      }
+
+      .booking-form-row {
+        flex-direction: column;
+      }
+
+      .modal-dogs img {
+        width: 76px;
+        height: 76px;
+      }
+    }
+  </style>
+</head>
+
+<body class="booking-page">
+<div class="container">
+
+  <!-- 左側側邊欄 -->
+  <aside>
+    <div class="logo">
+      <a href="index.html">寵愛廚房</a>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">🏠 首頁</a>
+      <a href="intro.html">📖 餐廳簡介</a>
+      <a href="menu.html">📄 菜單介紹</a>
+      <a href="drink.html">🥤 特色飲品</a>
+      <a href="dessert.html">🍰 甜點</a>
+      <a href="main.html">🍽️ 主餐</a>
+      <a href="taxi.html">🐶 店狗塔西</a>
+      <a href="rto.html">🐕 阿鬥</a>
+      <a href="duoduo.html">🐩 多多</a>
+      <a href="pidan.html">🐾 皮蛋</a>
+      <a href="reserve.html">📞 訂位專區</a>
+    </div>
+  </aside>
+
+  <!-- 右側主內容 -->
+  <div class="main">
+
+    <!-- Banner -->
+    <div class="banner">
+      <img src="images/banner.jpg" alt="寵愛廚房外觀">
+    </div>
+
+    <div class="content booking-content">
+      <div class="booking-title">
+        <h2>訂位專區</h2>
+        <span>🐾</span>
+      </div>
+
+      <p class="booking-intro">
+        在寵愛廚房，我們希望為你與毛孩保留一段專屬的溫柔時光。<br>
+        請填寫以下簡單資料，讓我們為你安排合適的座位與用餐時段。無論是散步後的小憩、與朋友的聚會，
+        還是與毛孩的療癒約會，我們都期待在這裡與你相遇。
+      </p>
+
+      <!-- 訂位表單 -->
+      <form id="bookingForm" class="booking-form">
+        <div class="booking-form-row">
+          <div class="booking-field">
+            <label for="name">訂位人姓名</label>
+            <input type="text" id="name" name="name" placeholder="例：王小明" required>
+          </div>
+          <div class="booking-field">
+            <label for="phone">聯絡電話</label>
+            <input type="tel" id="phone" name="phone" placeholder="例：0912-345-678" required>
+          </div>
+        </div>
+
+        <div class="booking-form-row">
+          <div class="booking-field">
+            <label for="date">用餐日期</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="booking-field">
+            <label for="time">用餐時間</label>
+            <select id="time" name="time" required>
+              <option value="">請選擇時間</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>13:00</option>
+              <option>17:30</option>
+              <option>18:30</option>
+              <option>19:30</option>
+            </select>
+          </div>
+          <div class="booking-field">
+            <label for="people">用餐人數</label>
+            <select id="people" name="people" required>
+              <option value="">請選擇人數</option>
+              <option>1 人</option>
+              <option>2 人</option>
+              <option>3 人</option>
+              <option>4 人</option>
+              <option>5 人</option>
+              <option>6 人以上</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-form-row">
+          <div class="booking-field">
+            <label>是否攜帶毛孩</label>
+            <div class="radio-group">
+              <label><input type="radio" name="withPet" value="是" checked> 是</label>
+              <label><input type="radio" name="withPet" value="否"> 否</label>
+            </div>
+          </div>
+          <div class="booking-field">
+            <label for="petCount">毛孩數量</label>
+            <select id="petCount" name="petCount">
+              <option value="">請選擇</option>
+              <option>1 隻</option>
+              <option>2 隻</option>
+              <option>3 隻以上</option>
+            </select>
+          </div>
+          <div class="booking-field">
+            <label>是否需要毛孩專屬餐</label>
+            <div class="radio-group">
+              <label><input type="radio" name="petMeal" value="需要"> 需要</label>
+              <label><input type="radio" name="petMeal" value="不需要" checked> 不需要</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-form-row">
+          <div class="booking-field" style="flex: 1 1 100%;">
+            <label for="note">備註</label>
+            <textarea id="note" name="note" placeholder="例：想要靠窗、慶生、會攜帶嬰兒推車、對狗狗過敏等需求…"></textarea>
+          </div>
+        </div>
+
+        <div class="booking-submit">
+          <button type="submit">送出訂位資訊</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>© 2025 寵愛廚房 Pet Love Kitchen</div>
+      <div class="social">
+        <img src="images/facebook.png" alt="Facebook">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/line.png" alt="Line">
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ✅ 成功彈窗：阿鬥 & 塔西 -->
+<div id="successModal" class="modal-overlay">
+  <div class="modal-box">
+    <h3 class="modal-title">訂位成功！</h3>
+    <p id="modalMessage" class="modal-message">
+      我們已收到你的訂位資訊，阿鬥和塔西正在餐廳等待你與毛孩的到來 🐶
+    </p>
+
+    <div class="modal-dogs">
+      <!-- 這兩張請用你的阿鬥、塔西照片，比較可愛 -->
+      <img src="images/adou2.jpg" alt="阿鬥">
+      <img src="images/taxi1.jpg" alt="塔西">
+    </div>
+
+    <div class="modal-buttons">
+      <button class="btn-secondary" id="closeModal">關閉視窗</button>
+      <button class="btn-primary" id="backHome">回到首頁</button>
+    </div>
+  </div>
+</div>
+
+<!-- 簡單 JS：處理送出＋彈窗 -->
+<script>
+  const form = document.getElementById('bookingForm');
+  const modal = document.getElementById('successModal');
+  const modalMsg = document.getElementById('modalMessage');
+  const closeBtn = document.getElementById('closeModal');
+  const backHomeBtn = document.getElementById('backHome');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value || '朋友';
+    const date = document.getElementById('date').value || '未填寫日期';
+    const time = document.getElementById('time').value || '未填寫時間';
+    const people = document.getElementById('people').value || '未填寫人數';
+
+    modalMsg.innerHTML =
+      `${name}，感謝你的訂位！<br>` +
+      `我們已暫時為你保留 <strong>${date}</strong> <strong>${time}</strong> ` +
+      `<strong>${people}</strong> 的座位。<br>` +
+      `阿鬥和塔西會在寵愛廚房等你與毛孩一起來玩 🐾`;
+
+    modal.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', function () {
+    modal.classList.remove('show');
+  });
+
+  backHomeBtn.addEventListener('click', function () {
+    window.location.href = 'index.html';
+  });
+
+  // 點遮罩關閉
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

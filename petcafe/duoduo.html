@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>店狗多多｜寵愛廚房 Pet Love Kitchen</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- 多多這一頁額外的樣式（只管文字＋圖片排版） -->
+  <style>
+    .dog-page {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .dog-page p {
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ✅ 三張照片：置中排列、間距跟阿鬥一樣 */
+    .dog-photo-row {
+      display: flex;
+      justify-content: center;   /* 這行就是讓整排往中間對齊 */
+      gap: 30px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .dog-photo-row img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dog-photo-row img:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- ✅ 側邊欄：跟你其他頁一樣的結構 -->
+  <aside>
+    <div class="logo">
+      <a href="index.html">寵愛廚房</a>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">🏠 首頁</a>
+      <a href="intro.html">📖 餐廳簡介</a>
+      <a href="menu.html">📄 菜單介紹</a>
+      <a href="drink.html">🥤 特色飲品</a>
+      <a href="dessert.html">🍰 甜點</a>
+      <a href="main.html">🍽️ 主餐</a>
+      <a href="taxi.html">🐶 店狗塔西</a>
+      <a href="rto.html">🐕 阿鬥</a>
+      <a href="duoduo.html">🐩 多多</a>
+      <a href="pidan.html">🐾 皮蛋</a>
+      <a href="reserve.html">📞 訂位專區</a>
+    </div>
+  </aside>
+
+  <!-- 右側內容區 -->
+  <div class="main">
+
+    <!-- 上方 banner：跟其他頁一樣 -->
+    <div class="banner">
+      <img src="images/banner.jpg" alt="寵愛廚房外觀">
+    </div>
+
+    <div class="content dog-page">
+      <h2>店狗多多 🐩</h2>
+
+      <p>
+        多多是一隻活潑又親切的薩摩耶，擁有一身柔軟、雪白的毛發，總是帶著燦爛的笑容，
+        讓每一位來訪的客人都感受到溫暖與歡樂。
+      </p>
+
+      <p>
+        多多喜歡在餐廳裡巡邏，向所有的客人打招呼。它不僅是我們的吉祥物，
+        還是寵物朋友們的好夥伴。多多對每位小貴賓都充滿好奇心，
+        時常用它的大眼睛注視著你，似乎在邀請你一起玩耍。
+      </p>
+
+      <p>
+        當你在用餐時，多多會默默陪伴在旁，偶爾用它那溫暖的鼻子輕輕碰觸，
+        帶來無限的安慰與陪伴。
+      </p>
+
+      <!-- ✅ 三張多多照片：現在會置中 -->
+      <div class="dog-photo-row">
+        <img src="images/duoduo1.jpg" alt="多多照片 1">
+        <img src="images/duoduo2.jpg" alt="多多照片 2">
+        <img src="images/duoduo3.jpg" alt="多多照片 3">
+      </div>
+    </div>
+
+    <footer>
+      <div>© 2025 寵愛廚房 Pet Love Kitchen</div>
+      <div class="social">
+        <img src="images/facebook.png" alt="Facebook">
+        <img src="images/instagram.png" alt="Instagram">
+        <img src="images/line.png" alt="Line">
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
